@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Three Tier App</title>
+</head>
+<body>
+  <h1>Welcome to the Three-Tier App</h1>
+  <p id="data">Loading data from backend...</p>
+  <script>
+    fetch('/api')
+      .then(res => res.json())
+      .then(data => {
+        document.getElementById('data').innerText = 'Message: ' + data.message;
+      })
+      .catch(err => {
+        document.getElementById('data').innerText = 'Error contacting backend';
+        console.error('Fetch error:', err);
+      });
+  </script>
+</body>
+</html>
+
